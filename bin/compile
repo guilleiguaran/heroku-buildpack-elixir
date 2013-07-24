@@ -37,7 +37,11 @@ EXROOT=${build}/ex
 
 mkdir ${APP_PATH}
 for file in ${build}/* ${build}/.*; do
-  test "$file" != "$APP_PATH" && test "$file" != "Procfile" && mv "$file" "$APP_PATH/";
+  test "$file" != "$APP_PATH" &&
+    test "$file" != "${build}/Procfile" &&
+    test "$file" != "${build}/." &&
+    test "$file" != "${build}/.." &&
+    mv "$file" "$APP_PATH/";
 done
 
 echo "-----> Using Erlang/OTP $erl_ver"
