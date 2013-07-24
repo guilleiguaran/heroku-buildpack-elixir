@@ -116,4 +116,4 @@ echo "-----> Compiling app"
 MIX_ENV=prod mix compile 2>&1 | indent
 
 mkdir ${build}/.profile.d
-echo "export MIX_PATH=/app/${APP_NAME}/ebin:/app/${APP_NAME}/deps/dynamo/ebin" > ${build}/.profile.d/mix_path.sh
+echo "cd /app/${APP_NAME}" > ${build}/.profile.d/path.sh
