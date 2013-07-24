@@ -36,8 +36,8 @@ ELIXIR_TARBALL_URL="https://github.com/elixir-lang/elixir/tarball/${ex_ver}"
 EXROOT=${build}/ex
 
 mkdir ${APP_PATH}
-for file in ${build}/*; do
-  test "$file" != "$APP_PATH" && mv "$file" "$APP_PATH/";
+for file in ${build}/* ${build}/.*; do
+  test "$file" != "$APP_PATH" && test "$file" != "Procfile" && mv "$file" "$APP_PATH/";
 done
 
 echo "-----> Using Erlang/OTP $erl_ver"
